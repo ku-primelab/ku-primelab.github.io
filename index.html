@@ -71,7 +71,8 @@
     display:flex; align-items:center; justify-content:space-between;
     padding:16px 28px; max-width:var(--maxw); margin:0 auto;
   }
-  .brand{display:flex; align-items:baseline; gap:10px; text-decoration:none; color:var(--ink);}
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink);}
+  .brand-logo{height:30px; width:auto; display:block;}
   .brand-name{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:17px; letter-spacing:0.01em;}
   .brand-sub{font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--ink-faint); letter-spacing:0.04em; display:none;}
   @media(min-width:720px){.brand-sub{display:inline;}}
@@ -467,9 +468,10 @@
   @media(min-width:640px){.member-grid{grid-template-columns:repeat(3,1fr);}}
   @media(min-width:900px){.member-grid{grid-template-columns:repeat(4,1fr);}}
   .member{}
-  .member .avatar{width:74px; height:74px; font-size:18px; margin-bottom:12px;}
+  .member .avatar{width:96px; height:96px; font-size:22px; margin-bottom:12px;}
   .member h4{font-size:14.5px; font-weight:600; margin:0 0 3px;}
-  .member p{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-faint); margin:0;}
+  .member p{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-faint); margin:0;}
+  .member p + p{margin-top:9px; font-size:12px; opacity:.8; line-height:1.4;}
 
   /* ---------- NEWS ---------- */
   .news-list{}
@@ -547,6 +549,7 @@
     display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px; font-size:13px; color:var(--ink-faint);
   }
   .footer-grid .brand-name{font-size:15px;}
+  .footer-logo{height:34px; width:auto; display:block; margin-bottom:10px;}
   .footer-links{display:flex; gap:18px; flex-wrap:wrap;}
   .footer-links a{color:var(--ink-dim); text-decoration:none;}
   .footer-links a:hover{color:var(--blue);}
@@ -586,7 +589,7 @@ var primePhotoFit = function(img){
 <header class="site">
   <nav>
     <a href="#top" class="brand">
-      <span class="brand-name">PRIME Lab</span>
+      <img src="assets/img/logo/prime_lab_logo_light.png" alt="PRIME Lab" class="brand-logo">
       <span class="brand-sub">/ MRI × AI</span>
     </a>
     <ul class="navlinks">
@@ -1118,6 +1121,31 @@ var primePhotoFit = function(img){
       </div>
 
       <div class="section-head" style="margin-top:8px; margin-bottom:24px;">
+        <p class="kicker">Members</p>
+        <p class="section-desc" data-kr="PRIME Lab에서 함께 연구하고 있는 구성원들입니다.">Researchers currently working with PRIME Lab.</p>
+      </div>
+      <div class="member-grid">
+        <div class="member">
+          <div class="avatar"><img src="assets/img/team/jinho.jpg" alt="Jinho Joo" data-i="0" data-base="assets/img/team/jinho" onerror="primeImgFallback(this)"></div>
+          <h4 data-kr="주진호">Jinho Joo</h4>
+          <p data-kr="박사과정(PhD) 학생 (Visiting)">PhD Student (Visiting)</p>
+          <p data-kr="MAI-Lab @ 연세대학교,<br>황도식 교수 공동지도">MAI-Lab @ Yonsei Univ.,<br>co-advised w/ Dr. Dosik Hwang</p>
+        </div>
+        <div class="member">
+          <div class="avatar"><img src="assets/img/team/yuting.jpg" alt="Yuting Chen" data-i="0" data-base="assets/img/team/yuting" onerror="primeImgFallback(this)"></div>
+          <h4 data-kr="Yuting Chen">Yuting Chen</h4>
+          <p data-kr="박사과정(PhD) 학생 (Visiting)">PhD Student (Visiting)</p>
+          <p data-kr="Huafeng Liu 교수 연구실 @ Zhejiang Univ.<br>Berkin Bilgic 교수 공동지도">Dr. Huafeng Liu's Lab @ Zhejiang Univ.,<br>co-advised w/ Dr. Berkin Bilgic</p>
+        </div>
+        <div class="member">
+          <div class="avatar"><img src="assets/img/team/jiye.jpg" alt="Jiye Kim" data-i="0" data-base="assets/img/team/jiye" onerror="primeImgFallback(this)"></div>
+          <h4 data-kr="김지예">Jiye Kim</h4>
+          <p data-kr="박사후연구원 (Visiting)">Postdoctoral Researcher (Visiting)</p>
+          <p data-kr="LIST @ 서울대학교.<br>이종호 교수, Berkin Bilgic 교수 공동지도">LIST @ Seoul National Univ.,<br>co-advised w/ Dr. Jongho Lee & Dr. Berkin Bilgic</p>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top:44px; margin-bottom:24px;">
         <p class="kicker">Now recruiting</p>
         <p class="section-desc" data-kr="PRIME Lab과 함께 성장할 멤버를 찾습니다. 연구에 열정을 가진 우수한 학생들을 적극적으로 모집하고 있으며, 현재 지원 가능한 포지션은 아래와 같습니다.">PRIME Lab is actively seeking highly motivated students to join our team. The following positions are currently open.</p>
       </div>
@@ -1218,7 +1246,8 @@ var primePhotoFit = function(img){
             161 Jeongneung-ro, Seongbuk-gu, Seoul, Republic of Korea<br><br>
             <strong>정몽구 미래의학관 MRI정밀영상연구센터</strong><br>
             고려대학교 메디사이언스파크<br>
-            서울 성북구 정릉로 161
+            서울 성북구 정릉로 161<br>
+            <a href="https://naver.me/xP8mZdS0" target="_blank" rel="noopener">네이버 지도</a>
           </p>
           <p>
             <strong data-kr="이메일:">Email:</strong><br>
@@ -1237,7 +1266,7 @@ var primePhotoFit = function(img){
 <footer>
   <div class="wrap footer-grid">
     <div>
-      <p class="brand-name display">PRIME Lab</p>
+      <img src="assets/img/logo/prime_lab_logo_light.png" alt="PRIME Lab" class="footer-logo">
       <p class="footer-addr">Department of Convergence Medicine,<br>Korea University College of Medicine, Seoul, Republic of Korea<br>정밀영상 및 자기공명공학 연구실, 고려대학교 의과대학 융합의학교실</p>
     </div>
     <div class="footer-links">
